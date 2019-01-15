@@ -1,0 +1,72 @@
+########################################
+#
+# define scoring mesh
+#
+/score/create/boxMesh boxMesh_1
+/score/mesh/translate/xyz 0 0 -1 cm
+#
+/score/mesh/boxSize 1.5 1.5 1. cm
+/score/mesh/nBin 30 30 20
+#
+/score/quantity/nOfStep nOfStepGamma
+/score/filter/particle gammaFilter gamma
+/score/quantity/energyDeposit eDep keV
+/score/quantity/doseDeposit dose
+#
+/score/close
+#
+/score/list
+#
+########################################
+#
+/vis/disable
+/control/verbose 2
+/run/verbose 1
+#######/event/verbose 1
+#######/tracking/verbose 1
+#/gun/particle ion
+#/gun/ion 27 60 
+#/gun/particle e-
+#/gun/position 0. 0. 1.1 m
+#/gun/momentum 0. 0. -1. 
+#
+# GPS COMMANDS
+########################################
+/gps/verbose 0
+/gps/particle ion
+/gps/ion 67 166
+/gps/pos/type Volume
+/gps/pos/shape Cylinder
+/gps/pos/centre 0. 0. 1.0 um
+/gps/pos/radius 0.5642 cm   #1 cm^2 area
+/gps/pos/halfz 1.0 um
+
+
+/run/beamOn 100000
+/vis/enable
+#
+########################################
+#
+# drawing projections
+#
+#/score/drawProjection boxMesh_1 nOfStepGamma 
+/score/drawProjection boxMesh_1 eDep
+/score/drawProjection boxMesh_1 dose
+#
+########################################
+##
+## drawing slices
+##
+#/vis/scene/create
+#/vis/sceneHandler/attach scene-1
+##/score/colorMap/setMinMax ! 0. 800.
+#/control/loop drawSlice.mac iColumn 0 29 7
+##
+########################################
+##
+## Dump scores to a file
+##
+/score/dumpQuantityToFile boxMesh_1 dose dose.txt
+#/score/dumpQuantityToFile boxMesh_1 nOfStepGamma nOfStepGamma.txt
+##
+##
