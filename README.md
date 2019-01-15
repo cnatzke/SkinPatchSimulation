@@ -2,7 +2,7 @@
 ## Introduction 
 The purpose of this simulation is to generate a dose heatmap for the development of a <sup>166</sup>Ho skin patch used in skin cancer treatments. It is based on the examples `/basic/rdecay01` and `/extended/REO3` included in GEANT4. 
 
-- Author: Connor Natzke cnatzke@mines.edu
+- Author: Connor Natzke 
 - Date: Jan. 2019
 - Geant4 Version: geant4.10.04p2
 
