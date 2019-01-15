@@ -9,11 +9,17 @@ The purpose of this simulation is to generate a dose heatmap for the development
 ## Installation
 Clone the simulation from github via 
 `git clone https://github.com/cnatzke/SkinPatchSimulation.git`
+
+
 Change directories into the new simulation directory
 `cd SkinPatchSimulation`
+
+
 Create a build directory and change into it
 `mkdir myBuild && cd myBuild`
+
+
 Configure simulation build files
 `cmake ../`
-*NOTE* You will have to specify the location of your GEANT4 install if it is
+**NOTE** You will have to specify the location of your GEANT4 install if it is
 not in your path via `cmake -DGeant4_DIR=/path/to/geant4`
